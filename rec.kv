@@ -1,0 +1,24 @@
+#:kivy 1.9.0
+
+<ShoppingList>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: 0.698, 0.933, 0.933, 1
+        Rectangle:
+            pos: self.width - (self.width)/10, self.y
+            size: self.width - (self.width)/10, self.height
+    Button:
+        text: "Quit"
+        font_size: 50
+        color: 0, 0, 0, 1
+        background_color: 0, 0, 0, 0
+        pos: root.width - (root.width)/12, root.height - (root.height)/10
+        on_release: exit()
+
+<RecApp>:
+    ShoppingList:
