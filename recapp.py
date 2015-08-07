@@ -5,6 +5,10 @@ from kivy.uix.button import Button
 from recipe import Recipe
 
 
+class MainScreen(Widget):
+    pass
+
+
 class ShoppingList(Widget):
     def __init__(self, **kwargs):
         self.recipe = Recipe()
@@ -14,12 +18,9 @@ class ShoppingList(Widget):
         return [self.recipe.show_ingredient(item) for item in self.recipe]
 
 
-class SimpleButton(Button):
-    pass
-
-
-class MainScreen(Widget):
-    pass
+class MenuBar(Widget):
+    class SimpleButton(Button):
+        pass
 
 
 class RecApp(App):

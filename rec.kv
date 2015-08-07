@@ -1,22 +1,50 @@
 #:kivy 1.9.0
 
-<SimpleButton>:
-    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-    color: 0, 0, 0, 1
-    background_color: 0, 0, 0, 0
-
 <MainScreen>:
     shopping_list: shopping_list
+    menu_bar: menu_bar
 
+
+    Label:
+        text: "Shopping List:"
+        font_size: int(self.width/3)
+        font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
+        color: 0, 0, 0, 1
+        center_x: root.center_x - root.width/10
+        center_y: root.height - root.height/8
+
+    ShoppingList:
+        id: shopping_list
+        pos: root.x + root.width/10, root.y + root.height/10
+        size: root.width - (root.width * 3/10), root.height - root.height/5
+
+    MenuBar:
+        id: menu_bar
+        pos: root.width - root.width/10, root.y
+        size: root.width, root.height
+
+<ShoppingList>
     canvas.before:
         Color:
             rgba: 0.698, 0.933, 0.933, 1
         Rectangle:
-            pos: self.width - self.width/10, self.y
-            size: self.width - self.width/10, self.height
+            pos: self.pos
+            size: self.size
+
+<SimpleButton>:
+    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
+    font_size: int(self.width/3)
+    halign: "center"
+    color: 0, 0, 0, 1
+    background_color: 0, 0, 0, 0
+
+<MenuBar>:
+    canvas.before:
+        Color:
+            rgba: 0.698, 0.933, 0.933, 1
         Rectangle:
-            pos: self.x + self.width/10, self.y + self.height/10
-            size: self.width - (root.width * 3/10), self.height - self.height/5
+            pos: self.x, self.y
+            size: self.width, self.height
 
     SimpleButton:
         text: "Quit"
@@ -31,60 +59,33 @@
 
     SimpleButton:
         text: "Add\nitem"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 3/10)
 
     SimpleButton:
         text: "Add\nrecipe"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 4/10)
 
     SimpleButton:
         text: "Remove\nitem"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 5/10)
 
     SimpleButton:
         text: "Remove\nrecipe"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 6/10)
 
     SimpleButton:
         text: "Save\nrecipe"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 7/10)
 
     SimpleButton:
         text: "Save\nlist"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 8/10)
 
     SimpleButton:
         text: "Load\nrecipe"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 9/10)
 
     SimpleButton:
         text: "Load\nlist"
-        halign: "center"
-        font_size: int(self.width/3)
         pos: root.width - root.width/12, root.height - (root.height * 10/10)
 
-    Label:
-        text: "Shopping List:"
-        font_size: int(self.width/3)
-        font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-        color: 0, 0, 0, 1
-        center_x: root.center_x - root.width/10
-        center_y: root.height - root.height/8
-
-    ShoppingList:
-        id: shopping_list
-        pos: root.x - root.width/10, root.y
