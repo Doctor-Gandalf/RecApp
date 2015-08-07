@@ -1,5 +1,11 @@
 #:kivy 1.9.0
 
+<SimpleButton>:
+    font_size: 50
+    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
+    color: 0, 0, 0, 1
+    background_color: 0, 0, 0, 0
+
 <MainScreen>:
     shopping_list: shopping_list
 
@@ -15,12 +21,8 @@
             pos: self.x, self.y
             size: self.width - root.width/10, self.height
 
-    Button:
+    SimpleButton:
         text: "Quit"
-        font_size: 50
-        font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-        color: 0, 0, 0, 1
-        background_color: 0, 0, 0, 0
         pos: root.width - root.width/12, root.height - root.height/10
         on_release: exit()
 

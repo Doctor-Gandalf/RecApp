@@ -1,6 +1,7 @@
 __author__ = 'Kellan Childers'
 from kivy.app import App
 from kivy.uix.widget import Widget
+from kivy.uix.button import Button
 from recipe import Recipe
 
 
@@ -14,6 +15,10 @@ class ShoppingList(Widget):
         for item in self.recipe:
             return_string = return_string + '\n' + self.recipe.show_ingredient(item)
         return return_string
+
+
+class SimpleButton(Button):
+    pass
 
 
 class MainScreen(Widget):
