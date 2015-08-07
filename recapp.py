@@ -11,10 +11,7 @@ class ShoppingList(Widget):
         super(ShoppingList, self).__init__(**kwargs)
 
     def list_items(self):
-        return_string = ""
-        for item in self.recipe:
-            return_string = return_string + '\n' + self.recipe.show_ingredient(item)
-        return return_string
+        return [self.recipe.show_ingredient(item) for item in self.recipe]
 
 
 class SimpleButton(Button):
