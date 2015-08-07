@@ -1,16 +1,16 @@
 __author__ = 'Kellan Childers'
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import ObjectProperty
+from recipe import Recipe
+
+
+class ShoppingList(Widget):
+    def __init__(self, **kwargs):
+        self.shopping_list = Recipe()
+        super(ShoppingList, self).__init__(**kwargs)
 
 
 class MainScreen(Widget):
-    pass
-
-
-class ShoppingList  (BoxLayout):
-    shopping_list = ObjectProperty(None)
     pass
 
 

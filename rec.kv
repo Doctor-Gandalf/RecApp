@@ -1,7 +1,16 @@
 #:kivy 1.9.0
 
-<MainScreen>:
+<ShoppingList>:
     canvas:
+        Color:
+            rgba: 0.698, 0.933, 0.933, 1
+        Rectangle:
+            pos: self.x, self.y
+            size: self.width, self.height
+
+<MainScreen>:
+    shopping_list: shopping_list
+    canvas.before:
         Color:
             rgba: 1, 1, 1, 1
         Rectangle:
@@ -10,8 +19,8 @@
         Color:
             rgba: 0.698, 0.933, 0.933, 1
         Rectangle:
-            pos: self.width - (self.width)/10, self.y
-            size: self.width - (self.width)/10, self.height
+            pos: self.width - self.width/10, self.y
+            size: self.width - self.width/10, self.height
     Button:
         text: "Quit"
         font_size: 50
@@ -21,8 +30,6 @@
         pos: root.width - (root.width)/12, root.height - (root.height)/10
         on_release: exit()
     ShoppingList:
-        pos: root.pos
-
-<ShoppingList>:
-    ListView:
-        item_strings: [str(index) for index in range(100)]
+        id: shopping_list
+        pos: root.x + root.width/12, root.y + root.height/8
+        size: 3 * root.width/4, 3 * root.height/4
