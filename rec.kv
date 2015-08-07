@@ -1,7 +1,6 @@
 #:kivy 1.9.0
 
 <SimpleButton>:
-    font_size: int(self.width/2)
     font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
     color: 0, 0, 0, 1
     background_color: 0, 0, 0, 0
@@ -21,8 +20,62 @@
 
     SimpleButton:
         text: "Quit"
+        font_size: int(self.width/2)
         pos: root.width - root.width/12, root.height - root.height/10
         on_release: exit()
+
+    SimpleButton:
+        text: "Clear"
+        font_size: int(self.width/2)
+        pos: root.width - root.width/12, root.height - (root.height * 2/10)
+
+    SimpleButton:
+        text: "Add\nitem"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 3/10)
+
+    SimpleButton:
+        text: "Add\nrecipe"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 4/10)
+
+    SimpleButton:
+        text: "Remove\nitem"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 5/10)
+
+    SimpleButton:
+        text: "Remove\nrecipe"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 6/10)
+
+    SimpleButton:
+        text: "Save\nrecipe"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 7/10)
+
+    SimpleButton:
+        text: "Save\nlist"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 8/10)
+
+    SimpleButton:
+        text: "Load\nrecipe"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 9/10)
+
+    SimpleButton:
+        text: "Load\nlist"
+        halign: "center"
+        font_size: int(self.width/3)
+        pos: root.width - root.width/12, root.height - (root.height * 10/10)
 
     Label:
         text: "Shopping List:"
