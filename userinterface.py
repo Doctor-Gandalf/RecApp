@@ -3,6 +3,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.lang import Builder
+from kivy.properties import ObjectProperty
 from recipe import Recipe
 
 
@@ -14,14 +15,20 @@ class MainScreen(Widget):
 
 
 class ShoppingList(Widget):
-    def __init__(self, **kwargs):
-        self.recipe = Recipe()
-        super(ShoppingList, self).__init__(**kwargs)
+    recipe = ObjectProperty(Recipe())
 
     def list_items(self):
         return [self.recipe.show_ingredient(item) for item in self.recipe]
 
 
 class MenuBar(BoxLayout):
+    pass
+
+
+class TopMenu(MenuBar):
+    pass
+
+
+class BottomMenu(MenuBar):
     class SimpleButton(Button):
         pass
