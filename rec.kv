@@ -1,25 +1,11 @@
 #:kivy 1.9.0
 
 <MainScreen>:
-    shopping_list: shopping_list
-    menu_bar: menu_bar
-
-
-    Label:
-        text: "Shopping List:"
-        font_size: int(self.width/3)
-        font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-        color: 0, 0, 0, 1
-        center_x: root.center_x - root.width/10
-        center_y: root.height - root.height/8
-
     ShoppingList:
-        id: shopping_list
         pos: root.x + root.width/10, root.y + root.height/10
         size: root.width - (root.width * 3/10), root.height - root.height/5
 
     MenuBar:
-        id: menu_bar
         pos: root.width - root.width/10, root.y
         size: root.width, root.height
 
@@ -31,12 +17,23 @@
             pos: self.pos
             size: self.size
 
+    Label:
+        text: "Shopping List:"
+        font_size: int(self.width/3)
+        font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
+        color: 0, 0, 0, 1
+        center_x: root.center_x
+        top: root.height + root.height/8
+
 <SimpleButton>:
     font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-    font_size: int(self.width/3)
+    font_size: int(self.width)/5
     halign: "center"
+    pos_hint_x: "center"
+    size_hint: (.1, .07)
     color: 0, 0, 0, 1
-    background_color: 0, 0, 0, 0
+    background_normal: ''
+    background_color: 0.698, 0.933, 0.933, 1
 
 <MenuBar>:
     canvas.before:
@@ -46,46 +43,38 @@
             pos: self.x, self.y
             size: self.width, self.height
 
+    orientation: "vertical"
+    spacing: int(self.height)/100
+
     SimpleButton:
         text: "Quit"
-        font_size: int(self.width/2)
-        pos: root.width - root.width/12, root.height - root.height/10
+        font_size: 3 * int(self.width)/8
         on_release: exit()
 
     SimpleButton:
         text: "Clear"
-        font_size: int(self.width/2)
-        pos: root.width - root.width/12, root.height - (root.height * 2/10)
+        font_size: 3 * int(self.width)/8
 
     SimpleButton:
         text: "Add\nitem"
-        pos: root.width - root.width/12, root.height - (root.height * 3/10)
 
     SimpleButton:
         text: "Add\nrecipe"
-        pos: root.width - root.width/12, root.height - (root.height * 4/10)
 
     SimpleButton:
         text: "Remove\nitem"
-        pos: root.width - root.width/12, root.height - (root.height * 5/10)
 
     SimpleButton:
         text: "Remove\nrecipe"
-        pos: root.width - root.width/12, root.height - (root.height * 6/10)
 
     SimpleButton:
         text: "Save\nrecipe"
-        pos: root.width - root.width/12, root.height - (root.height * 7/10)
 
     SimpleButton:
         text: "Save\nlist"
-        pos: root.width - root.width/12, root.height - (root.height * 8/10)
 
     SimpleButton:
         text: "Load\nrecipe"
-        pos: root.width - root.width/12, root.height - (root.height * 9/10)
 
     SimpleButton:
         text: "Load\nlist"
-        pos: root.width - root.width/12, root.height - (root.height * 10/10)
-
