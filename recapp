@@ -1,3 +1,4 @@
+#!/Applications/Kivy.app/Contents/Resources/python
 __author__ = 'Kellan Childers'
 from kivy.app import App
 from kivy.uix.widget import Widget
