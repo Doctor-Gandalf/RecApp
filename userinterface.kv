@@ -1,17 +1,62 @@
 #:kivy 1.9.0
 
 <MainScreen>:
+    shopping_list: shopping_list
+
     TopMenu:
         pos: root.x, root.height-root.height/20
         size: root.width, root.height/20
 
     ShoppingList:
+        id: shopping_list
         pos: root.x, root.y + root.height/10
         size: root.width, root.height - (3 * root.height/20)
 
     BottomMenu:
         pos: root.x, root.y
         size: root.width, root.height/10
+
+        SimpleButton:
+            text: "Clear"
+            font_size: 3 * int(self.width)/8
+            on_release: shopping_list.clear()
+
+        SimpleButton:
+            text: "Add\nitem"
+            on_release: shopping_list.add_item()
+
+        SimpleButton:
+            text: "Add\nrecipe"
+            on_release: shopping_list.add_recipe()
+
+        SimpleButton:
+            text: "Remove\nitem"
+            on_release: shopping_list.remove_item()
+
+        SimpleButton:
+            text: "Remove\nrecipe"
+            on_release: shopping_list.remove_recipe()
+
+        SimpleButton:
+            text: "Save\nrecipe"
+            on_release: shopping_list.save_recipe()
+
+        SimpleButton:
+            text: "Save\nlist"
+            on_release: shopping_list.save_list()
+
+        SimpleButton:
+            text: "Load\nrecipe"
+            on_release: shopping_list.load_recipe()
+
+        SimpleButton:
+            text: "Load\nlist"
+            on_release: shopping_list.load_list()
+
+        SimpleButton:
+            text: "Quit"
+            font_size: 3 * int(self.width)/8
+            on_release: exit()
 
 <ShoppingList>
     canvas.before:
@@ -61,36 +106,3 @@
         Rectangle:
             pos: self.x, self.y + self.height/10
             size: self.width, self.height - self.height/5
-
-    SimpleButton:
-        text: "Clear"
-        font_size: 3 * int(self.width)/8
-
-    SimpleButton:
-        text: "Add\nitem"
-
-    SimpleButton:
-        text: "Add\nrecipe"
-
-    SimpleButton:
-        text: "Remove\nitem"
-
-    SimpleButton:
-        text: "Remove\nrecipe"
-
-    SimpleButton:
-        text: "Save\nrecipe"
-
-    SimpleButton:
-        text: "Save\nlist"
-
-    SimpleButton:
-        text: "Load\nrecipe"
-
-    SimpleButton:
-        text: "Load\nlist"
-
-    SimpleButton:
-        text: "Quit"
-        font_size: 3 * int(self.width)/8
-        on_release: exit()

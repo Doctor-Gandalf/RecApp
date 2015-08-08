@@ -20,6 +20,33 @@ class ShoppingList(Widget):
     def list_items(self):
         return [self.recipe.show_ingredient(item) for item in self.recipe]
 
+    def add_item(self):
+        pass
+
+    def add_recipe(self):
+        pass
+
+    def remove_item(self):
+        pass
+
+    def save_recipe(self):
+        pass
+
+    def save_list(self):
+        pass
+
+    def remove_recipe(self):
+        pass
+
+    def load_recipe(self):
+        pass
+
+    def load_list(self):
+        pass
+
+    def clear(self):
+        pass
+
 
 class MenuBar(BoxLayout):
     pass
