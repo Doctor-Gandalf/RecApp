@@ -2,12 +2,12 @@
 
 <MainScreen>:
     ShoppingList:
-        pos: root.x + root.width/10, root.y + root.height/10
-        size: root.width - (root.width * 3/10), root.height - root.height/5
+        pos: root.x + root.width/10, root.y + root.height/5
+        size: 4 * root.width/5, 7 * root.height/10
 
     MenuBar:
-        pos: root.width - root.width/10, root.y
-        size: root.width, root.height
+        pos: root.x, root.y
+        size: root.width, root.height/10
 
 <ShoppingList>
     canvas.before:
@@ -23,14 +23,14 @@
         font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
         color: 0, 0, 0, 1
         center_x: root.center_x
-        top: root.height + root.height/8
+        top: root.top
 
 <SimpleButton>:
     font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
     font_size: int(self.width)/5
     halign: "center"
-    pos_hint_x: "center"
-    size_hint: (.1, .07)
+    pos_hint_y: "center"
+    size_hint: (.07, 1)
     color: 0, 0, 0, 1
     background_normal: ''
     background_color: 0.698, 0.933, 0.933, 1
@@ -43,7 +43,7 @@
             pos: self.x, self.y
             size: self.width, self.height
 
-    orientation: "vertical"
+    orientation: "horizontal"
     spacing: int(self.height)/100
 
     SimpleButton:
