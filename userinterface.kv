@@ -26,8 +26,8 @@
         Color:
             rgba: 0.698, 0.933, 0.933, 1
         Rectangle:
-            pos: self.x, self.y
-            size: self.width, self.height
+            pos: self.pos
+            size: self.size
 
     orientation: "horizontal"
     spacing: int(self.height)/100
@@ -36,7 +36,7 @@
     orientation: "vertical"
 
     Label:
-        text: "Shopping List:"
+        text: "Shopping List"
         font_size: int(self.width/50)
         font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
         color: 0, 0, 0, 1
@@ -54,6 +54,14 @@
     background_color: 0.698, 0.933, 0.933, 1
 
 <BottomMenu>:
+    # Add black rectangle to show through spacing as pipes between buttons.
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.x, self.y + self.height/10
+            size: self.width, self.height - self.height/5
+
     SimpleButton:
         text: "Quit"
         font_size: 3 * int(self.width)/8

@@ -2,8 +2,8 @@ __author__ = 'Kellan Childers'
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from kivy.lang import Builder
 from kivy.properties import ObjectProperty
+from kivy.lang import Builder
 from recipe import Recipe
 
 
