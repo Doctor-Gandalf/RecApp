@@ -63,11 +63,6 @@
             size: self.width, self.height - self.height/5
 
     SimpleButton:
-        text: "Quit"
-        font_size: 3 * int(self.width)/8
-        on_release: exit()
-
-    SimpleButton:
         text: "Clear"
         font_size: 3 * int(self.width)/8
 
@@ -94,3 +89,8 @@
 
     SimpleButton:
         text: "Load\nlist"
+
+    SimpleButton:
+        text: "Quit"
+        font_size: 3 * int(self.width)/8
+        on_release: exit()
