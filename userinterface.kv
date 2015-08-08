@@ -88,6 +88,15 @@
         center_x: root.center_x
         top: root.top
 
+<BottomMenu>:
+    # Add black rectangle to show through spacing as pipes between buttons.
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.x, self.y + self.height/10
+            size: self.width, self.height - self.height/5
+
 <SimpleButton>:
     font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
     font_size: int(self.width)/5
@@ -97,12 +106,3 @@
     color: 0, 0, 0, 1
     background_normal: ''
     background_color: 178.0/255.0, 238.0/255.0, 238.0/255.0, 1
-
-<BottomMenu>:
-    # Add black rectangle to show through spacing as pipes between buttons.
-    canvas:
-        Color:
-            rgba: 0, 0, 0, 1
-        Rectangle:
-            pos: self.x, self.y + self.height/10
-            size: self.width, self.height - self.height/5
