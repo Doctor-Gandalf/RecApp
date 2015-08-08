@@ -14,7 +14,7 @@ class MainScreen(Widget):
     pass
 
 
-class ShoppingList(Widget):
+class ShoppingList(BoxLayout):
     recipe = ObjectProperty(Recipe())
 
     def list_items(self):
@@ -45,7 +45,7 @@ class ShoppingList(Widget):
         pass
 
     def clear(self):
-        pass
+        self.recipe.clear()
 
 
 class MenuBar(BoxLayout):

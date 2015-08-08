@@ -1,10 +1,13 @@
 #:kivy 1.9.0
+#:import ListView kivy.uix.listview
+#:import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:import ListItemLabel kivy.uix.listview.ListItemLabel
 
 <MainScreen>:
     shopping_list: shopping_list
 
     TopMenu:
-        pos: root.x, root.height-root.height/20
+        pos: root.x, root.height - root.height/20
         size: root.width, root.height/20
 
     ShoppingList:
@@ -58,13 +61,28 @@
             font_size: 3 * int(self.width)/8
             on_release: exit()
 
-<ShoppingList>
+<ListItemLabel>:
+    font_size: int(self.width/50)
+    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
+    color: 0, 0, 0, 1
+    size_hint: (1, 1)
+
+<ShoppingList>:
     canvas.before:
         Color:
             rgba: 1, 1, 1, 1
         Rectangle:
             pos: self.pos
             size: self.size
+
+    orientation: "horizontal"
+    spacing: int(self.height)/100
+
+    ListView:
+        adapter:
+            ListAdapter(
+            data=["Item #{0}".format(i) for i in range(40)],
+            cls=ListItemLabel)
 
 <MenuBar>:
     canvas.before:
