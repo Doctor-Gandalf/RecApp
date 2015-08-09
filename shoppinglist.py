@@ -1,21 +1,13 @@
 __author__ = 'Kellan Childers'
-from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
+from menus import SimpleButton
 from recipe import Recipe
-
-Builder.load_file('mainscreen.kv')
-Builder.load_file('shoppingscreen.kv')
-Builder.load_file('menus.kv')
-
-
-class MainScreen(Widget):
-    pass
+Builder.load_file('shoppinglist.kv')
 
 
 class ShoppingList(BoxLayout):
@@ -33,15 +25,18 @@ class ShoppingList(BoxLayout):
 
         popup_line_1 = BoxLayout(orientation="horizontal")
         popup_line_1.add_widget(Label(text="Input item name:"))
-        popup_line_1.add_widget(TextInput(multiline=False))
+        line_1_text = TextInput()
+        popup_line_1.add_widget(line_1_text)
 
         popup_line_2 = BoxLayout(orientation="horizontal")
         popup_line_2.add_widget(Label(text="Input item quantity:"))
-        popup_line_2.add_widget(TextInput())
+        line_2_text = TextInput()
+        popup_line_2.add_widget(line_2_text)
 
         popup_line_3 = BoxLayout(orientation="horizontal")
         popup_line_3.add_widget(Label(text="Input item qualifier:"))
-        popup_line_3.add_widget(TextInput())
+        line_3_text = TextInput()
+        popup_line_3.add_widget(line_3_text)
 
         popup_line_4 = SimpleButton(text="Enter")
 
@@ -53,6 +48,11 @@ class ShoppingList(BoxLayout):
         input_pop = Popup(title="Add item", content=popup_interior)
         input_pop.open()
 
+        item_name = line_1_text.text
+        item_quantity = line_2_text.text
+        item_qualifier = line_3_text.text
+
+        self.recipe.add_ingredient(item_name, item_quantity, item_qualifier)
 
     def add_recipe(self):
         pass
@@ -77,19 +77,3 @@ class ShoppingList(BoxLayout):
 
     def clear(self):
         self.recipe.clear()
-
-
-class MenuBar(BoxLayout):
-    pass
-
-
-class TopMenu(MenuBar):
-    pass
-
-
-class BottomMenu(MenuBar):
-    pass
-
-
-class SimpleButton(Button):
-    pass
