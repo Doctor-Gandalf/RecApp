@@ -2,25 +2,28 @@
 #:import TopMenu userinterface.menus.TopMenu
 #:import ShoppingList userinterface.shoppinglist.ShoppingList
 #:import BottomMenu userinterface.menus.BottomMenu
+#:import SimpleButton userinterface.menus.SimpleButton
 
 <MainScreen>:
     shopping_list: shopping_list
 
     TopMenu:
+        # The top bar should take up one twentieth of
+        # the total height (half that of the bottom menu).
         pos: root.x, root.height - root.height/20
         size: root.width, root.height/20
 
     ShoppingList:
-        list1: list1
+        # The main part of the screen is the shopping list,
+        # which contains a list viewing mechanism.
         id: shopping_list
         pos: root.x, root.y + root.height/10
         size: root.width, root.height - (3 * root.height/20)
 
-        ListView:
-            id: list1
-
 
     BottomMenu:
+        # The bottom menu should contain all commands as buttons
+        # and take up a tenth of the screen.
         pos: root.x, root.y
         size: root.width, root.height/10
 
@@ -65,13 +68,3 @@
             text: "Quit"
             font_size: 3 * int(self.width)/8
             on_release: exit()
-
-<SimpleButton>:
-    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-    font_size: int(self.width)/5
-    halign: "center"
-    pos_hint_y: "center"
-    size_hint: (.07, 1)
-    color: 0, 0, 0, 1
-    background_normal: ''
-    background_color: 178.0/255.0, 238.0/255.0, 238.0/255.0, 1

@@ -1,6 +1,8 @@
 #:kivy 1.9.0
 
 <MenuBar>:
+    # All menus should have a light blue background
+    # and a small gap between elements.
     canvas.before:
         Color:
             rgba: 178.0/255.0, 238.0/255.0, 238.0/255.0, 1
@@ -8,13 +10,16 @@
             pos: self.pos
             size: self.size
 
-    orientation: "horizontal"
     spacing: int(self.height)/100
 
 <TopMenu>:
+    # Top menu should have a vertical layout
+    # and state the main function of the app.
     orientation: "vertical"
 
     Label:
+        # The app's main function is as a shopping list
+        # and the main font used in the application is Roboto.
         text: "Shopping List"
         font_size: int(self.width/50)
         font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
@@ -23,10 +28,27 @@
         top: root.top
 
 <BottomMenu>:
-    # Add black rectangle to show through spacing as pipes between buttons.
+    # Bottom menu should have a horizontal layout
+    # and buttons controlling functionality (located in mainscreen.kv).
+    orientation: "horizontal"
+
     canvas:
         Color:
             rgba: 0, 0, 0, 1
         Rectangle:
+            # Add black rectangle to show through spacing
+            # as pipes between buttons.
             pos: self.x, self.y + self.height/10
             size: self.width, self.height - self.height/5
+
+<SimpleButton>:
+    # All buttons in application should be light blue
+    # and use Roboto as their main font.
+    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
+    font_size: int(self.width)/5
+    halign: "center"
+    pos_hint_y: "center"
+    size_hint: (.07, 1)
+    color: 0, 0, 0, 1
+    background_normal: ''
+    background_color: 178.0/255.0, 238.0/255.0, 238.0/255.0, 1

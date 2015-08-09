@@ -4,6 +4,7 @@
 #:import ListItemLabel kivy.uix.listview.ListItemLabel
 
 <ShoppingList>:
+    list1: list1
     canvas.before:
         Color:
             rgba: 1, 1, 1, 1
@@ -13,6 +14,9 @@
 
     orientation: "horizontal"
     spacing: int(self.height)/100
+
+    ListView:
+        id: list1
 
 <Popup>:
     title_align: "center"
