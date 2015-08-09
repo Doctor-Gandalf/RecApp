@@ -1,7 +1,7 @@
 #!/Applications/Kivy.app/Contents/Resources/python
 __author__ = 'Kellan Childers'
 from kivy.app import App
-from mainscreen import MainScreen
+from userinterface.mainscreen import MainScreen
 
 
 class RecApp(App):

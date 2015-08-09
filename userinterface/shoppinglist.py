@@ -7,7 +7,7 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from menus import SimpleButton
 from recipe import Recipe
-Builder.load_file('shoppinglist.kv')
+Builder.load_file('userinterface/shoppinglist.kv')
 
 
 class ShoppingList(BoxLayout):

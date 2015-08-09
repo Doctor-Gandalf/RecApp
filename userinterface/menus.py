@@ -2,7 +2,7 @@ __author__ = 'Kellan Childers'
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.lang import Builder
-Builder.load_file('menus.kv')
+Builder.load_file('userinterface/menus.kv')
 
 
 class MenuBar(BoxLayout):
