@@ -1,7 +1,4 @@
 #:kivy 1.9.0
-#:import ListView kivy.uix.listview
-#:import ListAdapter kivy.adapters.listadapter.ListAdapter
-#:import ListItemLabel kivy.uix.listview.ListItemLabel
 
 <MainScreen>:
     shopping_list: shopping_list
@@ -11,9 +8,14 @@
         size: root.width, root.height/20
 
     ShoppingList:
+        list1: list1
         id: shopping_list
         pos: root.x, root.y + root.height/10
         size: root.width, root.height - (3 * root.height/20)
+
+        ListView:
+            id: list1
+
 
     BottomMenu:
         pos: root.x, root.y
@@ -60,60 +62,6 @@
             text: "Quit"
             font_size: 3 * int(self.width)/8
             on_release: exit()
-
-<ListItemLabel>:
-    font_size: int(self.width/50)
-    font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-    color: 0, 0, 0, 1
-    size_hint: (1, 1)
-
-<ShoppingList>:
-    canvas.before:
-        Color:
-            rgba: 1, 1, 1, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
-
-    orientation: "horizontal"
-    spacing: int(self.height)/100
-
-    ListView:
-        adapter:
-            ListAdapter(
-            data=["Item #{0}".format(i) for i in range(40)],
-            cls=ListItemLabel)
-
-<MenuBar>:
-    canvas.before:
-        Color:
-            rgba: 178.0/255.0, 238.0/255.0, 238.0/255.0, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
-
-    orientation: "horizontal"
-    spacing: int(self.height)/100
-
-<TopMenu>:
-    orientation: "vertical"
-
-    Label:
-        text: "Shopping List"
-        font_size: int(self.width/50)
-        font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
-        color: 0, 0, 0, 1
-        center_x: root.center_x
-        top: root.top
-
-<BottomMenu>:
-    # Add black rectangle to show through spacing as pipes between buttons.
-    canvas:
-        Color:
-            rgba: 0, 0, 0, 1
-        Rectangle:
-            pos: self.x, self.y + self.height/10
-            size: self.width, self.height - self.height/5
 
 <SimpleButton>:
     font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'
