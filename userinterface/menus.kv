@@ -1,6 +1,8 @@
 #:kivy 1.9.0
+#:import BoxLayout kivy.uix.boxlayout.BoxLayout
+#:import Button kivy.uix.button.Button
 
-<MenuBar>:
+<MenuBar@BoxLayout>:
     # All menus should have a light blue background
     # and a small gap between elements.
     canvas.before:
@@ -12,7 +14,7 @@
 
     spacing: int(self.height)/100
 
-<TopMenu>:
+<TopMenu@MenuBar>:
     # Top menu should have a vertical layout
     # and state the main function of the app.
     orientation: "vertical"
@@ -27,9 +29,20 @@
         center_x: root.center_x
         top: root.top
 
-<BottomMenu>:
+<BottomMenu@MenuBar>:
     # Bottom menu should have a horizontal layout
-    # and buttons controlling functionality (located in mainscreen.kv).
+    # and buttons controlling functionality.
+
+    clear: clear
+    add_item: add_item
+    add_recipe: add_recipe
+    remove_item: remove_item
+    remove_recipe: remove_recipe
+    save_recipe: save_recipe
+    save_list: save_list
+    load_recipe: load_recipe
+    load_list: load_list
+
     orientation: "horizontal"
 
     canvas:
@@ -41,7 +54,49 @@
             pos: self.x, self.y + self.height/10
             size: self.width, self.height - self.height/5
 
-<SimpleButton>:
+    SimpleButton:
+        id: clear
+        text: "Clear"
+        font_size: 3 * int(self.width)/8
+
+    SimpleButton:
+        id: add_item
+        text: "Add\nitem"
+
+    SimpleButton:
+        id: add_recipe
+        text: "Add\nrecipe"
+
+    SimpleButton:
+        id: remove_item
+        text: "Remove\nitem"
+
+    SimpleButton:
+        id: remove_recipe
+        text: "Remove\nrecipe"
+
+    SimpleButton:
+        id: save_recipe
+        text: "Save\nrecipe"
+
+    SimpleButton:
+        id: save_list
+        text: "Save\nlist"
+
+    SimpleButton:
+        id: load_recipe
+        text: "Load\nrecipe"
+
+    SimpleButton:
+        id: load_list
+        text: "Load\nlist"
+
+    SimpleButton:
+        text: "Quit"
+        font_size: 3 * int(self.width)/8
+        on_release: exit()
+
+<SimpleButton@Button>:
     # All buttons in application should be light blue
     # and use Roboto as their main font.
     font_name: 'data/fonts/Roboto/Roboto-Regular.ttf'

@@ -1,10 +1,12 @@
 #:kivy 1.9.0
+#:import Widget kivy.uix.widget.Widget
 #:import TopMenu userinterface.menus.TopMenu
 #:import ShoppingList userinterface.shoppinglist.ShoppingList
 #:import BottomMenu userinterface.menus.BottomMenu
-#:import SimpleButton userinterface.menus.SimpleButton
 
-<MainScreen>:
+MainScreen:
+
+<MainScreen@Widget>:
     shopping_list: shopping_list
 
     TopMenu:
@@ -20,51 +22,8 @@
         pos: root.x, root.y + root.height/10
         size: root.width, root.height - (3 * root.height/20)
 
-
     BottomMenu:
         # The bottom menu should contain all commands as buttons
         # and take up a tenth of the screen.
         pos: root.x, root.y
         size: root.width, root.height/10
-
-        SimpleButton:
-            text: "Clear"
-            font_size: 3 * int(self.width)/8
-            on_release: shopping_list.clear()
-
-        SimpleButton:
-            text: "Add\nitem"
-            on_release: shopping_list.add_item()
-
-        SimpleButton:
-            text: "Add\nrecipe"
-            on_release: shopping_list.add_recipe()
-
-        SimpleButton:
-            text: "Remove\nitem"
-            on_release: shopping_list.remove_item()
-
-        SimpleButton:
-            text: "Remove\nrecipe"
-            on_release: shopping_list.remove_recipe()
-
-        SimpleButton:
-            text: "Save\nrecipe"
-            on_release: shopping_list.save_recipe()
-
-        SimpleButton:
-            text: "Save\nlist"
-            on_release: shopping_list.save_list()
-
-        SimpleButton:
-            text: "Load\nrecipe"
-            on_release: shopping_list.load_recipe()
-
-        SimpleButton:
-            text: "Load\nlist"
-            on_release: shopping_list.load_list()
-
-        SimpleButton:
-            text: "Quit"
-            font_size: 3 * int(self.width)/8
-            on_release: exit()

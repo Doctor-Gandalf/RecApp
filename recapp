@@ -1,12 +1,11 @@
 #!/Applications/Kivy.app/Contents/Resources/python
 __author__ = 'Kellan Childers'
 from kivy.app import App
-from userinterface.mainscreen import MainScreen
 
 
 class RecApp(App):
-    def build(self):
-        return MainScreen()
+    title = 'RecApp'
+    kv_file = 'userinterface/mainscreen.kv'
 
 if __name__ == "__main__":
     RecApp().run()

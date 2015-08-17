@@ -1,6 +1,7 @@
 __author__ = 'Kellan Childers'
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 
 # Load the kvlang file associated with this file.
@@ -19,7 +20,14 @@ class TopMenu(MenuBar):
 
 class BottomMenu(MenuBar):
     """Placeholder to assist formatting bottom menu bar."""
-    pass
+    clear = ObjectProperty(None)
+    add_item = ObjectProperty(None)
+    add_recipe = ObjectProperty(None)
+    remove_item = ObjectProperty(None)
+    remove_recipe = ObjectProperty(None)
+    save_recipe = ObjectProperty(None)
+    load_recipe = ObjectProperty(None)
+    load_list = ObjectProperty(None)
 
 
 class SimpleButton(Button):

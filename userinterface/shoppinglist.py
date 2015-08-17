@@ -3,10 +3,11 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-from kivy.properties import ObjectProperty
 from kivy.lang import Builder
-from menus import SimpleButton
-from recipe import Recipe
+
+from kivy.properties import ObjectProperty
+from data.recipe import Recipe
+
 Builder.load_file('userinterface/shoppinglist.kv')
 
 
@@ -37,8 +38,6 @@ class ShoppingList(BoxLayout):
         popup_line_3.add_widget(Label(text="Input item qualifier:"))
         line_3_text = TextInput()
         popup_line_3.add_widget(line_3_text)
-
-        popup_line_4 = SimpleButton(text="Enter")
 
         popup_interior.add_widget(popup_line_1)
         popup_interior.add_widget(popup_line_2)
